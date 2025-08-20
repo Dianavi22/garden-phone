@@ -24,23 +24,24 @@ public class Tile : MonoBehaviour
 
     void OnMouseUp()
     {
-        _tileManager.selectedTile = this;
-
-        if (_tileData.isEmpty)
+        if (!_tileManager.isPanelActive)
         {
-            _tileManager.PanelStatus(true);
-        }
-        else
-        {
-            if (!_tileManager.isSelectedTileMode)
+            _tileManager.selectedTile = this;
+            if (_tileData.isEmpty)
             {
-                nbRessources++;
-                UpdateTextTile();
+                _tileManager.PanelStatus(true);
             }
-           
-            
+            else
+            {
+                if (!_tileManager.isSelectedTileMode)
+                {
+                    nbRessources++;
+                    UpdateTextTile();
+                }
 
+            }
         }
+       
     }
 
     public void UpdateTextTile()

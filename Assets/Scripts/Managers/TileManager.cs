@@ -13,6 +13,7 @@ public class TileManager : MonoBehaviour
     public bool isSelectedTileMode = false;
     private RaycastHit _hit;
     private Tile myTile;
+    public bool isPanelActive = false;
     void Start()
     {
 
@@ -26,10 +27,9 @@ public class TileManager : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out _hit, 100) && _hit.collider.CompareTag("Tile"))
             {
-               
                 myTile = _hit.transform.gameObject.GetComponent<Tile>();
                 EventManager.Instance.SelectTile(myTile);
-                EventManager.Instance.Subscribe<OnTileSelected>(RessourceInBasket);
+               
             }
             else
             {
@@ -70,12 +70,12 @@ public class TileManager : MonoBehaviour
 
     public void PanelStatus(bool status)
     {
+        isPanelActive = status;
         _panelSetTile.SetActive(status);
     }
 
     public void RessourceInBasket(object sender, OnTileSelected @event)
     {
-        // Event Wait Click
         myTile.currentRessource.ressourceBasket.ressourceInBasket += myTile.nbRessources;
         myTile.nbRessources = 0;
         myTile.UpdateTextTile();
@@ -87,6 +87,7 @@ public class TileManager : MonoBehaviour
     public void ActiveSelectMode()
     {
         isSelectedTileMode = true;
+        EventManager.Instance.Subscribe<OnTileSelected>(RessourceInBasket);
     }
 
 
