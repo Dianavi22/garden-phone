@@ -44,6 +44,11 @@ public class Tile : MonoBehaviour
        
     }
 
+    public bool VerifEmpty()
+    {
+        return _tileData.isEmpty;
+    }
+
     public void UpdateTextTile()
     {
         _tileTxt.text = nbRessources.ToString();

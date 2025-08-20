@@ -76,11 +76,16 @@ public class TileManager : MonoBehaviour
 
     public void RessourceInBasket(object sender, OnTileSelected @event)
     {
-        myTile.currentRessource.ressourceBasket.ressourceInBasket += myTile.nbRessources;
-        myTile.nbRessources = 0;
-        myTile.UpdateTextTile();
+        if (!myTile.VerifEmpty())
+        {
+            myTile.currentRessource.ressourceBasket.ressourceInBasket += myTile.nbRessources;
+            myTile.nbRessources = 0;
+            myTile.UpdateTextTile();
+            isSelectedTileMode = false;
+        }
+      
         EventManager.Instance.Unsubscribe<OnTileSelected>(RessourceInBasket);
-        isSelectedTileMode = false;
+        
 
     }
 
