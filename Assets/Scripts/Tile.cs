@@ -32,14 +32,18 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            nbRessources++;
-            UpdateTextTile();
+            if (!_tileManager.isSelectedTileMode)
+            {
+                nbRessources++;
+                UpdateTextTile();
+            }
+           
             
 
         }
     }
 
-    private void UpdateTextTile()
+    public void UpdateTextTile()
     {
         _tileTxt.text = nbRessources.ToString();
     }

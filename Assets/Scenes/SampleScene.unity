@@ -857,6 +857,7 @@ GameObject:
   - component: {fileID: 955352638}
   - component: {fileID: 955352639}
   - component: {fileID: 955352640}
+  - component: {fileID: 955352641}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -891,7 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a13171bc87cc64e8f1d268f3b13125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 10
+  coins: 20
   _coinsTxt: {fileID: 1892291444}
 --- !u!114 &955352640
 MonoBehaviour:
@@ -910,6 +911,19 @@ MonoBehaviour:
   ressourcesList:
   - {fileID: 11400000, guid: 056dd068db5c2c0498f1da741439d1c1, type: 2}
   _gameManager: {fileID: 955352639}
+  isSelectedTileMode: 0
+--- !u!114 &955352641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955352637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d5a8f5ed0368b43907070159845a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1101,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 955352640}
         m_TargetAssemblyTypeName: TileManager, Assembly-CSharp
-        m_MethodName: RessourceInBasket
+        m_MethodName: ActiveSelectMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2463,6 +2477,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 234282633452420647, guid: 1072430b0a71acb4ba608a853e467af3, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 1996615133003532194, guid: 1072430b0a71acb4ba608a853e467af3, type: 3}
       propertyPath: m_Name
       value: Tile
