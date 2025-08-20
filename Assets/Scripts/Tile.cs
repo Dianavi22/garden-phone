@@ -22,7 +22,7 @@ public class Tile : MonoBehaviour
       
     }
 
-    void OnMouseDown()
+    void OnMouseUp()
     {
         _tileManager.selectedTile = this;
 
@@ -33,7 +33,15 @@ public class Tile : MonoBehaviour
         else
         {
             nbRessources++;
+            UpdateTextTile();
+            
+
         }
+    }
+
+    private void UpdateTextTile()
+    {
+        _tileTxt.text = nbRessources.ToString();
     }
 
     public void SetRessource(string ressource)

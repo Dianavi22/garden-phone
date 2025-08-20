@@ -32,8 +32,9 @@ public class TileManager : MonoBehaviour
             {
                 if (_gameManager.coins >= ressourcesList[i].cost)
                 {
+                    _gameManager.coins -= ressourcesList[i].cost;
+                    _gameManager.UodateCoinsText();
                     selectedTile.currentRessource = ressourcesList[i];
-
                 }
                 else
                 {
@@ -43,8 +44,7 @@ public class TileManager : MonoBehaviour
             }
         }
         selectedTile.SetRessource(ressource);
-
-        PanelStatus(false);
+        BackButton();
     }
 
     public void PanelStatus(bool status)
@@ -52,10 +52,11 @@ public class TileManager : MonoBehaviour
         _panelSetTile.SetActive(status);
     }
 
-    public void RessourceInBasket()
+    public void RessourceInBasket(Tile myTile)
     {
-        selectedTile.currentRessource.ressourceBasket.ressourceInBasket += selectedTile.nbRessources;
-        selectedTile.nbRessources = 0;
-        print(selectedTile.currentRessource.ressourceBasket.ressourceInBasket);
+        // Event Wait Click
+        myTile.currentRessource.ressourceBasket.ressourceInBasket += myTile.nbRessources;
+        myTile.nbRessources = 0;
+        print(myTile.currentRessource.ressourceBasket.ressourceInBasket);
     }
 }
