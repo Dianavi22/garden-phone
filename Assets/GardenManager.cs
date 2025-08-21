@@ -16,14 +16,14 @@ public class GardenManager : MonoBehaviour
         
     }
     
-    public void ShowShop(bool status)
+   public void ShopShop()
     {
-        _shopPanel.SetActive(status);
+        _shopPanel.SetActive(true);
     }
 
     public void AddNewTile()
     {
-        ShowShop(false);
+        GameManager.Instance.HideAllPanels();
         for (int i = 0; i < _gardenTile.Count; i++)
         {
             if (!_gardenTile[i].activeSelf)

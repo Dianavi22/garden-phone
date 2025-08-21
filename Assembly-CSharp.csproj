@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\TileData.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Scriptable\RessourcesData\RessourcesData.cs" />
+    <Compile Include="Assets\SelectionManager.cs" />
     <Compile Include="Assets\Scripts\Managers\TileManager.cs" />
   </ItemGroup>
   <ItemGroup>

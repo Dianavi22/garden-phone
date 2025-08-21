@@ -362,6 +362,7 @@
 "Assets/Scripts/Scriptable/RessourcesData/RessourcesData.cs"
 "Assets/Scripts/Tile.cs"
 "Assets/Scripts/TileData.cs"
+"Assets/SelectionManager.cs"
 -langversion:9.0
 
 /deterministic

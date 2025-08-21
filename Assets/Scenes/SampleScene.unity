@@ -998,6 +998,7 @@ GameObject:
   - component: {fileID: 955352641}
   - component: {fileID: 955352642}
   - component: {fileID: 955352643}
+  - component: {fileID: 955352644}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1034,6 +1035,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 30
   _coinsTxt: {fileID: 1892291444}
+  canClick: 0
+  _panelList:
+  - {fileID: 1130216664}
+  - {fileID: 1498426856}
 --- !u!114 &955352640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,7 +1057,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 056dd068db5c2c0498f1da741439d1c1, type: 2}
   - {fileID: 11400000, guid: f24f1fd8a1784a845ab233735daa2c31, type: 2}
   _gameManager: {fileID: 955352639}
-  isSelectedTileMode: 0
   isPanelActive: 0
 --- !u!114 &955352641
 MonoBehaviour:
@@ -1095,10 +1099,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cceedc68a887bb45a82184391cc36dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSelectedTileMode: 0
   _clicker: {fileID: 8048042324789282196, guid: d3d4fdf58644bf545803f09bcd9c006c, type: 3}
   _gardenManager: {fileID: 0}
   _clickers: []
+--- !u!114 &955352644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955352637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a425836c7d6c24eb75f1b1dba02ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectedTileMode: 0
+  myTile: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,8 +3058,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 955352642}
         m_TargetAssemblyTypeName: GardenManager, Assembly-CSharp
-        m_MethodName: ShowShop
-        m_Mode: 6
+        m_MethodName: ShopShop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

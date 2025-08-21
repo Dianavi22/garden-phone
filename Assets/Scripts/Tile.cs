@@ -19,13 +19,18 @@ public class Tile : MonoBehaviour
 
     void Update()
     {
-      
+
     }
 
     void OnMouseUp()
     {
-        if (!_tileManager.isPanelActive)
+        if (GameManager.Instance.canClick)
         {
+            if (SelectionManager.Instance.isGhostClick)
+            {
+                SelectionManager.Instance.isGhostClick = false;
+                return;
+            }
             _tileManager.selectedTile = this;
             if (_tileData.isEmpty)
             {
@@ -33,15 +38,11 @@ public class Tile : MonoBehaviour
             }
             else
             {
-                if (!_tileManager.isSelectedTileMode)
-                {
-                    nbRessources++;
-                    UpdateTextTile();
-                }
-
+                nbRessources++;
+                UpdateTextTile();
             }
         }
-       
+
     }
 
     public bool VerifEmpty()
