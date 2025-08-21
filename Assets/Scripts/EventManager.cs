@@ -55,9 +55,10 @@ public class EventManager : MonoBehaviour
     {
         RaiseEvent(new OnTileSelected() { tileSelected = tile });
     }
+
 }
 
 public class OnTileSelected: EventArgs
 {
-    public bool tileSelected;
+    public Tile tileSelected;
 }

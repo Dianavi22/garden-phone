@@ -1,17 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Clicker : MonoBehaviour
 {
-    private Tile _tileAssociate;
-    void Start()
-    {
-        
-    }
+    public Tile tileAssociate;
+    private ClickerManager _clickerManager;
 
-    void Update()
+    private void Start()
     {
-        
+        _clickerManager = FindObjectOfType<ClickerManager>();
+        _clickerManager.GiveTile(this);
     }
 }

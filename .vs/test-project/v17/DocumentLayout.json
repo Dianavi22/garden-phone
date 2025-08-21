@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\TSS-POC\\test-project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2CD12E51-54A3-1B49-BB94-EBEDE003A4F7}|Assembly-CSharp.csproj|C:\\Users\\TSS-POC\\test-project\\assets\\scripts\\managers\\tilemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2CD12E51-54A3-1B49-BB94-EBEDE003A4F7}|Assembly-CSharp.csproj|c:\\users\\tss-poc\\test-project\\assets\\clicker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CD12E51-54A3-1B49-BB94-EBEDE003A4F7}|Assembly-CSharp.csproj|solutionrelative:assets\\clicker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CD12E51-54A3-1B49-BB94-EBEDE003A4F7}|Assembly-CSharp.csproj|c:\\users\\tss-poc\\test-project\\assets\\scripts\\managers\\tilemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2CD12E51-54A3-1B49-BB94-EBEDE003A4F7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\tilemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{2CD12E51-54A3-1B49-BB94-EBEDE003A4F7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2CD12E51-54A3-1B49-BB94-EBEDE003A4F7}|Assembly-CSharp.csproj|c:\\users\\tss-poc\\test-project\\assets\\scripts\\tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2CD12E51-54A3-1B49-BB94-EBEDE003A4F7}|Assembly-CSharp.csproj|C:\\Users\\TSS-POC\\test-project\\assets\\scripts\\tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2CD12E51-54A3-1B49-BB94-EBEDE003A4F7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -31,6 +35,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Clicker.cs",
+              "DocumentMoniker": "C:\\Users\\TSS-POC\\test-project\\Assets\\Clicker.cs",
+              "RelativeDocumentMoniker": "Assets\\Clicker.cs",
+              "ToolTip": "C:\\Users\\TSS-POC\\test-project\\Assets\\Clicker.cs",
+              "RelativeToolTip": "Assets\\Clicker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T08:40:05.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TileManager.cs",
               "DocumentMoniker": "C:\\Users\\TSS-POC\\test-project\\Assets\\Scripts\\Managers\\TileManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\TileManager.cs",
@@ -43,7 +60,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Tile.cs",
               "DocumentMoniker": "C:\\Users\\TSS-POC\\test-project\\Assets\\Scripts\\Tile.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Tile.cs",
@@ -51,12 +68,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Tile.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAYwCQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T09:53:31.324Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T09:53:31.324Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\TSS-POC\\test-project\\Assets\\Scripts\\Managers\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\GameManager.cs",
@@ -64,12 +80,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Managers\\GameManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T09:16:25.546Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T09:16:25.546Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TileData.cs",
               "DocumentMoniker": "C:\\Users\\TSS-POC\\test-project\\Assets\\Scripts\\TileData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TileData.cs",

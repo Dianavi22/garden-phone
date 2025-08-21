@@ -83,10 +83,7 @@ public class TileManager : MonoBehaviour
             myTile.UpdateTextTile();
             isSelectedTileMode = false;
         }
-      
         EventManager.Instance.Unsubscribe<OnTileSelected>(RessourceInBasket);
-        
-
     }
 
     public void ActiveSelectMode()

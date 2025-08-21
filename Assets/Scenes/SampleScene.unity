@@ -123,23 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &15242919 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8048042324789282196, guid: d3d4fdf58644bf545803f09bcd9c006c, type: 3}
-  m_PrefabInstance: {fileID: 6837422020435586836}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &15242921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 15242919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06658e6bf7f9a814b80a9da3c578afd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &71911418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +997,7 @@ GameObject:
   - component: {fileID: 955352640}
   - component: {fileID: 955352641}
   - component: {fileID: 955352642}
+  - component: {fileID: 955352643}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1099,6 +1083,22 @@ MonoBehaviour:
   - {fileID: 950879071}
   - {fileID: 1643014748}
   _shopPanel: {fileID: 1498426856}
+--- !u!114 &955352643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955352637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cceedc68a887bb45a82184391cc36dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectedTileMode: 0
+  _clicker: {fileID: 8048042324789282196, guid: d3d4fdf58644bf545803f09bcd9c006c, type: 3}
+  _gardenManager: {fileID: 0}
+  _clickers: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,10 +2506,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 955352640}
-        m_TargetAssemblyTypeName: TileManager, Assembly-CSharp
-        m_MethodName: SetTile
-        m_Mode: 5
+      - m_Target: {fileID: 955352643}
+        m_TargetAssemblyTypeName: ClickerManager, Assembly-CSharp
+        m_MethodName: ActiveSelectMode
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3598,13 +3598,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clicker
       objectReference: {fileID: 0}
+    - target: {fileID: 8048042324789282196, guid: d3d4fdf58644bf545803f09bcd9c006c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8048042324789282196, guid: d3d4fdf58644bf545803f09bcd9c006c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 15242921}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3d4fdf58644bf545803f09bcd9c006c, type: 3}
 --- !u!1001 &7341711723834080858
 PrefabInstance:
