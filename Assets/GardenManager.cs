@@ -19,6 +19,8 @@ public class GardenManager : MonoBehaviour
    public void ShopShop()
     {
         _shopPanel.SetActive(true);
+        GameManager.Instance.canClick = false;
+
     }
 
     public void AddNewTile()

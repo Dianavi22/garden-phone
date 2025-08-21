@@ -17,6 +17,8 @@ public class ClickerManager : MonoBehaviour
     public void ActiveSelectMode()
     {
         SelectionManager.Instance.ActiveSelectionMode(true);
+        GameManager.Instance.HideAllPanels();
+
         EventManager.Instance.Subscribe<OnTileSelected>(AddClicker);
     }
     public void AddClicker(object sender, OnTileSelected @event)
