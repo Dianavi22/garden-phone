@@ -9,6 +9,8 @@ public class ClickerManager : MonoBehaviour
     [SerializeField] private GardenManager _gardenManager;
     [SerializeField] private List<Clicker> _clickers;
     [SerializeField] private int _clickerCost;
+    public float interval = 1f;
+    public int incrementAmount = 1;
 
     private void Start()
     {
