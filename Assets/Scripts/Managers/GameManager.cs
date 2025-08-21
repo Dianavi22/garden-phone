@@ -41,6 +41,16 @@ public class GameManager : MonoBehaviour
         _coinsTxt.text = coins.ToString();
 
     }
+    public void Buy(int cost)
+    {
+        coins -= cost;
+        UpdateCoinsText();
+    }
+
+    public void NoCoins()
+    {
+        print("NO COINS");
+    }
 
 
 }

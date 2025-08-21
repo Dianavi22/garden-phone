@@ -8,6 +8,7 @@ public class ClickerManager : MonoBehaviour
     [SerializeField] private GameObject _clicker;
     [SerializeField] private GardenManager _gardenManager;
     [SerializeField] private List<Clicker> _clickers;
+    [SerializeField] private int _clickerCost;
 
     private void Start()
     {
@@ -16,16 +17,28 @@ public class ClickerManager : MonoBehaviour
 
     public void ActiveSelectMode()
     {
-        SelectionManager.Instance.ActiveSelectionMode(true);
         GameManager.Instance.HideAllPanels();
+        if (_clickerCost > GameManager.Instance.coins)
+        {
+            GameManager.Instance.NoCoins();
+            GameManager.Instance.canClick = true;
 
-        EventManager.Instance.Subscribe<OnTileSelected>(AddClicker);
+            return;
+        }
+        else
+        {
+            SelectionManager.Instance.ActiveSelectionMode(true);
+            EventManager.Instance.Subscribe<OnTileSelected>(AddClicker);
+        }
+            
     }
     public void AddClicker(object sender, OnTileSelected @event)
     {
         if (!SelectionManager.Instance.myTile.VerifEmpty())
         {
             Instantiate(_clicker, transform.position, Quaternion.identity);
+            GameManager.Instance.Buy(_clickerCost);
+
         }
         SelectionManager.Instance.ActiveSelectionMode(false);
         GameManager.Instance.HideAllPanels();

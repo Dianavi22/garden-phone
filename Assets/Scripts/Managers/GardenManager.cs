@@ -6,6 +6,7 @@ public class GardenManager : MonoBehaviour
 {
    [SerializeField] private List<GameObject> _gardenTile;
     [SerializeField] GameObject _shopPanel;
+    [SerializeField] int _tileCost;
     void Start()
     {
         
@@ -26,13 +27,24 @@ public class GardenManager : MonoBehaviour
     public void AddNewTile()
     {
         GameManager.Instance.HideAllPanels();
-        for (int i = 0; i < _gardenTile.Count; i++)
+        if (GameManager.Instance.coins >= _tileCost)
         {
-            if (!_gardenTile[i].activeSelf)
+            GameManager.Instance.Buy(_tileCost);
+            for (int i = 0; i < _gardenTile.Count; i++)
             {
-                _gardenTile[i].SetActive(true);
-                return; 
+                if (!_gardenTile[i].activeSelf)
+                {
+                    _gardenTile[i].SetActive(true);
+                    break;
+                }
             }
         }
+        else
+        {
+            GameManager.Instance.NoCoins();
+
+        }
+        GameManager.Instance.canClick = true;
+
     }
 }

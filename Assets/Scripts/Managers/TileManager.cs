@@ -18,7 +18,7 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
-       
+
     }
 
     public void BackButton()
@@ -36,8 +36,7 @@ public class TileManager : MonoBehaviour
             {
                 if (_gameManager.coins >= ressourcesList[i].cost)
                 {
-                    _gameManager.coins -= ressourcesList[i].cost;
-                    _gameManager.UpdateCoinsText();
+                    GameManager.Instance.Buy(ressourcesList[i].cost);
                     selectedTile.currentRessource = ressourcesList[i];
                 }
                 else
@@ -77,8 +76,4 @@ public class TileManager : MonoBehaviour
         SelectionManager.Instance.ActiveSelectionMode(true);
         EventManager.Instance.Subscribe<OnTileSelected>(RessourceInBasket);
     }
-
-
-
-
 }
