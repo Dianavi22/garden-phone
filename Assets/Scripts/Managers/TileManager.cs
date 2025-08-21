@@ -10,6 +10,7 @@ public class TileManager : MonoBehaviour
     [SerializeField] GameObject _panelSetTile;
     [SerializeField] List<RessourcesData> ressourcesList;
     [SerializeField] GameManager _gameManager;
+    [SerializeField] Material _initMat;
     public bool isPanelActive = false;
     void Start()
     {
@@ -56,6 +57,7 @@ public class TileManager : MonoBehaviour
         _panelSetTile.SetActive(status);
     }
 
+    //TODO Factoriser
     public void RessourceInBasket(object sender, OnTileSelected @event)
     {
         Tile myTile = SelectionManager.Instance.myTile;
@@ -71,9 +73,34 @@ public class TileManager : MonoBehaviour
         EventManager.Instance.Unsubscribe<OnTileSelected>(RessourceInBasket);
     }
 
-    public void ActiveSelectMode()
+    public void ReinitTile(object sender, OnTileSelected @event)
+    {
+        Tile myTile = SelectionManager.Instance.myTile;
+        if (!myTile.VerifEmpty())
+        {
+            myTile.currentRessource.ressourceBasket.ressourceInBasket += myTile.nbRessources;
+            myTile.CleanTile();
+            myTile.GetComponent<Renderer>().material = _initMat;
+            myTile.UpdateTextTile();
+
+        }
+        EventManager.Instance.Unsubscribe<OnTileSelected>(ReinitTile);
+        SelectionManager.Instance.ActiveSelectionMode(false);
+        GameManager.Instance.HideAllPanels();
+    }
+
+    public void ActiveSelectMode(int function)
     {
         SelectionManager.Instance.ActiveSelectionMode(true);
-        EventManager.Instance.Subscribe<OnTileSelected>(RessourceInBasket);
+        if(function == 0)
+        {
+            EventManager.Instance.Subscribe<OnTileSelected>(RessourceInBasket);
+
+        }
+        else
+        {
+            EventManager.Instance.Subscribe<OnTileSelected>(ReinitTile);
+
+        }
     }
 }

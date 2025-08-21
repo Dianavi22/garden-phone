@@ -45,9 +45,20 @@ public class Tile : MonoBehaviour
 
     }
 
+
     public bool VerifEmpty()
     {
         return _tileData.isEmpty;
+    }
+
+    public void CleanTile()
+    {
+        _tileData.isEmpty = true;
+        nbRessources = 0;
+        currentRessource = null;
+        _tileTxt.gameObject.SetActive(false);
+        _tileData.ressourceStatus = null;
+
     }
 
     public void UpdateTextTile()

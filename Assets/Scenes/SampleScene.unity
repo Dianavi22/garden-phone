@@ -473,7 +473,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 275681711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955352640}
+        m_TargetAssemblyTypeName: TileManager, Assembly-CSharp
+        m_MethodName: ActiveSelectMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &275681711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,10 +832,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 955352642}
-        m_TargetAssemblyTypeName: GardenManager, Assembly-CSharp
-        m_MethodName: ShowShop
-        m_Mode: 6
+      - m_Target: {fileID: 955352640}
+        m_TargetAssemblyTypeName: TileManager, Assembly-CSharp
+        m_MethodName: BackButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1057,6 +1069,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 056dd068db5c2c0498f1da741439d1c1, type: 2}
   - {fileID: 11400000, guid: f24f1fd8a1784a845ab233735daa2c31, type: 2}
   _gameManager: {fileID: 955352639}
+  _initMat: {fileID: 2100000, guid: e1f3a34054a93cf4e8732d1b8cd080db, type: 2}
   isPanelActive: 0
 --- !u!114 &955352641
 MonoBehaviour:
@@ -1104,6 +1117,8 @@ MonoBehaviour:
   _gardenManager: {fileID: 0}
   _clickers: []
   _clickerCost: 100
+  interval: 1
+  incrementAmount: 1
 --- !u!114 &955352644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1436,7 +1451,7 @@ MonoBehaviour:
       - m_Target: {fileID: 955352640}
         m_TargetAssemblyTypeName: TileManager, Assembly-CSharp
         m_MethodName: ActiveSelectMode
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
