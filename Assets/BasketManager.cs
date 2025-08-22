@@ -26,6 +26,7 @@ public class BasketManager : MonoBehaviour
 
     public void ShowBasket()
     {
+        GameManager.Instance.HideAllPanels();
         _buttonBasket.SetActive(!_buttonBasket.activeSelf);
     }
 
@@ -62,8 +63,18 @@ public class BasketManager : MonoBehaviour
 
     }
 
-    public void DeleteItemBasket()
+    public void DeleteItemBasket(RessourcesData rd)
     {
-
+        print("LAAAAAAAAAAA");
+        for (int i = 0; i < _itemsInBasket.Count; i++)
+        {
+            if (_itemsInBasket[i].dataAssociate.title == rd.title)
+            {
+                CoinsManager.Instance.GetCoins(rd.ressourceBasket.ressourceInBasket, rd.price);
+                rd.ressourceBasket.ressourceInBasket = 0;
+                Destroy(_itemsInBasket[i].gameObject);
+                _itemsInBasket.RemoveAt(i);
+            }
+        }
     }
 }

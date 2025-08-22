@@ -77,11 +77,12 @@ public class TileManager : MonoBehaviour
         Tile myTile = SelectionManager.Instance.myTile;
         if (!myTile.VerifEmpty() && myTile != null)
         {
+            GardenManager.Instance.ResetTile(myTile.currentRessource,  () => { });
             myTile.currentRessource.ressourceBasket.ressourceInBasket += myTile.nbRessources;
             myTile.CleanTile();
             myTile.GetComponent<Renderer>().material = _initMat;
             myTile.UpdateTextTile();
-             _cm.SellClicherAssociate(myTile, () => {});
+            _cm.SellClicherAssociate(myTile, () => {});
         }
         EventManager.Instance.Unsubscribe<OnTileSelected>(ReinitTile);
         SelectionManager.Instance.ActiveSelectionMode(false);

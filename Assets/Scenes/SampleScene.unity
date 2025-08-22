@@ -1173,7 +1173,6 @@ RectTransform:
   - {fileID: 1187942491}
   - {fileID: 1101062371}
   - {fileID: 1950996140}
-  - {fileID: 2005368315}
   - {fileID: 275681709}
   - {fileID: 543012168}
   - {fileID: 1130216665}
@@ -1292,10 +1291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac7709670762ed419177259422ec3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gardenTile:
+  gardenTile:
   - {fileID: 1010250502}
   - {fileID: 950879071}
   - {fileID: 1643014748}
+  gardenActiveTile:
+  - {fileID: 1010250503}
   _shopPanel: {fileID: 1498426856}
   _tileCost: 500
 --- !u!114 &955352643
@@ -1592,6 +1593,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1996615133003532194, guid: 1072430b0a71acb4ba608a853e467af3, type: 3}
   m_PrefabInstance: {fileID: 7341711723834080858}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1010250503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2659798758161621554, guid: 1072430b0a71acb4ba608a853e467af3, type: 3}
+  m_PrefabInstance: {fileID: 7341711723834080858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010250502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032776682f66194428bee13268ae09a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1101062370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,6 +2245,7 @@ RectTransform:
   m_Children:
   - {fileID: 1998711112}
   - {fileID: 738665992}
+  - {fileID: 2005368315}
   m_Father: {fileID: 942771538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3788,17 +3801,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005368314}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.110103056, y: 0.056123488, z: 0.110103056}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 93310215}
-  m_Father: {fileID: 942771538}
+  m_Father: {fileID: 1470449823}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 142.50552, y: -1052.4663}
+  m_AnchoredPosition: {x: 15.690285, y: -59.068054}
   m_SizeDelta: {x: 194.989, y: 185.0675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005368316

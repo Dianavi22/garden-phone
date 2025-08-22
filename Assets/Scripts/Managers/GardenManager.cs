@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GardenManager : MonoBehaviour
 {
-   [SerializeField] private List<GameObject> _gardenTile;
+    public List<GameObject> gardenTile;
+    public List<Tile> gardenActiveTile;
     [SerializeField] GameObject _shopPanel;
     [SerializeField] int _tileCost;
+    public static GardenManager Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(this.gameObject);
+        else
+            Instance = this;
+    }
     void Start()
     {
         
@@ -16,8 +27,26 @@ public class GardenManager : MonoBehaviour
     {
         
     }
-    
-   public void ShopShop()
+
+    public void ResetTile(RessourcesData rd, System.Action onComplete = null)
+    {
+        int nbOccuRessource = 0;
+        for (int i = 0; i < gardenActiveTile.Count; i++)
+        {
+            if (rd.title == gardenActiveTile[i].currentRessource.title)
+            {
+                nbOccuRessource++;
+            }
+        }
+
+        if (nbOccuRessource < 1)
+        {
+            BasketManager.Instance.DeleteItemBasket(rd);
+        }
+        onComplete?.Invoke();
+    }
+
+    public void ShopShop()
     {
         GameManager.Instance.HideAllPanels();
         _shopPanel.SetActive(true);
@@ -31,11 +60,12 @@ public class GardenManager : MonoBehaviour
         if (CoinsManager.Instance.coins >= _tileCost)
         {
             CoinsManager.Instance.Buy(_tileCost);
-            for (int i = 0; i < _gardenTile.Count; i++)
+            for (int i = 0; i < gardenTile.Count; i++)
             {
-                if (!_gardenTile[i].activeSelf)
+                if (!gardenTile[i].activeSelf)
                 {
-                    _gardenTile[i].SetActive(true);
+                    gardenTile[i].SetActive(true);
+                    gardenActiveTile.Add(gardenTile[i].GetComponent<Tile>());
                     break;
                 }
             }
