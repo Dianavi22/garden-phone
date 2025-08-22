@@ -23,13 +23,6 @@ public class TileManager : MonoBehaviour
 
     }
 
-    public void BackButton()
-    {
-        PanelStatus(false);
-        selectedTile = null;
-        GameManager.Instance.canClick = true;
-    }
-
     public void SetTile(string ressource)
     {
         for (int i = 0; i < ressourcesList.Count; i++)
@@ -44,13 +37,16 @@ public class TileManager : MonoBehaviour
                 }
                 else
                 {
-                    BackButton();
+                    selectedTile = null;
+                    GameManager.Instance.HideAllPanels();
                     return;
                 }
             }
         }
         selectedTile.SetRessource(ressource);
-        BackButton();
+        selectedTile = null;
+        GameManager.Instance.HideAllPanels();
+
     }
 
     public void PanelStatus(bool status)
@@ -94,6 +90,7 @@ public class TileManager : MonoBehaviour
 
     public void ActiveSelectMode(int function)
     {
+        GameManager.Instance.HideAllPanels();
         SelectionManager.Instance.ActiveSelectionMode(true);
         if(function == 0)
         {

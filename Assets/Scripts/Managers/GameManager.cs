@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             _panelList[i].SetActive(false);
         }
+        canClick = true ;
     }
   
 

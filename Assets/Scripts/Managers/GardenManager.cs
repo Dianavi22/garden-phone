@@ -19,6 +19,7 @@ public class GardenManager : MonoBehaviour
     
    public void ShopShop()
     {
+        GameManager.Instance.HideAllPanels();
         _shopPanel.SetActive(true);
         GameManager.Instance.canClick = false;
 
