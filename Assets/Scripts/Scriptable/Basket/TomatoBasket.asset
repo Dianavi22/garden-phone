@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: TomatoBasket
   m_EditorClassIdentifier: 
   ressourceInBasket: 0
+  colorBasketItem: {r: 0.6226415, g: 0.014684939, b: 0.014684939, a: 1}

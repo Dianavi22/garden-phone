@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Scriptable\Basket\BasketDataManager.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
+    <Compile Include="Assets\ItemBasket.cs" />
     <Compile Include="Assets\Scripts\Managers\SelectionManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ClickerManager.cs" />
     <Compile Include="Assets\Scripts\TileData.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Scripts\Managers\GardenManager.cs" />
     <Compile Include="Assets\Scripts\Clicker.cs" />
     <Compile Include="Assets\Scripts\Scriptable\RessourcesData\RessourcesData.cs" />
+    <Compile Include="Assets\BasketManager.cs" />
     <Compile Include="Assets\Scripts\Managers\TileManager.cs" />
   </ItemGroup>
   <ItemGroup>

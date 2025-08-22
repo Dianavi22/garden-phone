@@ -6,4 +6,5 @@ using UnityEngine;
 public class BasketDataManager : ScriptableObject
 {
     public int ressourceInBasket;
+    public Color colorBasketItem;
 }

@@ -29,7 +29,6 @@ public class SelectionManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && isSelectedTileMode)
         {
-
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out _hit, 100) && _hit.collider.CompareTag("Tile"))
             {
@@ -43,7 +42,6 @@ public class SelectionManager : MonoBehaviour
             }
             myTile = null;
         }
-
     }
 
     public void ActiveSelectionMode(bool status)

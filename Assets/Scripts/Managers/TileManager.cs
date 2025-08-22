@@ -40,6 +40,7 @@ public class TileManager : MonoBehaviour
                 {
                     CoinsManager.Instance.Buy(ressourcesList[i].cost);
                     selectedTile.currentRessource = ressourcesList[i];
+                    BasketManager.Instance.AddItemInBasket(ressourcesList[i]);
                 }
                 else
                 {
@@ -67,6 +68,7 @@ public class TileManager : MonoBehaviour
             myTile.currentRessource.ressourceBasket.ressourceInBasket += myTile.nbRessources;
             myTile.nbRessources = 0;
             myTile.UpdateTextTile();
+            BasketManager.Instance.UpdateItemInBasket(myTile.currentRessource);
 
         }
         SelectionManager.Instance.ActiveSelectionMode(false);
@@ -96,12 +98,10 @@ public class TileManager : MonoBehaviour
         if(function == 0)
         {
             EventManager.Instance.Subscribe<OnTileSelected>(RessourceInBasket);
-
         }
         else
         {
             EventManager.Instance.Subscribe<OnTileSelected>(ReinitTile);
-
         }
     }
 }
