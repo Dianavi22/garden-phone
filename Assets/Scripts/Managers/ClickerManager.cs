@@ -9,6 +9,7 @@ public class ClickerManager : MonoBehaviour
     [SerializeField] private GardenManager _gardenManager;
     [SerializeField] private List<Clicker> _clickers;
     [SerializeField] private int _clickerCost;
+    private Tile _myTile;
     public float interval = 1f;
     public int incrementAmount = 1;
 
@@ -36,7 +37,9 @@ public class ClickerManager : MonoBehaviour
     }
     public void AddClicker(object sender, OnTileSelected @event)
     {
-        if (!SelectionManager.Instance.myTile.VerifEmpty())
+         _myTile = SelectionManager.Instance.myTile;
+        print(_myTile);
+        if (_myTile != null && !_myTile.VerifEmpty() )
         {
             Instantiate(_clicker, transform.position, Quaternion.identity);
             CoinsManager.Instance.Buy(_clickerCost);
@@ -50,7 +53,7 @@ public class ClickerManager : MonoBehaviour
     public void GiveTile(Clicker clicker)
     {
         _clickers.Add(clicker);
-        clicker.tileAssociate = SelectionManager.Instance.myTile;
+        clicker.tileAssociate = _myTile;
     }
 
     public void SellClicherAssociate(Tile tile, System.Action onComplete = null)

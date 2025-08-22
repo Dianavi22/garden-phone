@@ -10,6 +10,7 @@ public class SelectionManager : MonoBehaviour
     private RaycastHit _hit;
     public Tile myTile;
     public bool isGhostClick;
+    private Ray ray;
     public static SelectionManager Instance { get; private set; }
 
     void Awake()
@@ -29,7 +30,7 @@ public class SelectionManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isSelectedTileMode)
         {
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out _hit, 100) && _hit.collider.CompareTag("Tile"))
             {
                 myTile = _hit.transform.gameObject.GetComponent<Tile>();
@@ -37,9 +38,10 @@ public class SelectionManager : MonoBehaviour
             }
             else
             {
+                EventManager.Instance.SelectTile(myTile);
                 ActiveSelectionMode(false);
             }
-
+            myTile = null;
         }
 
     }

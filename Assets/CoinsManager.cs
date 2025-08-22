@@ -44,7 +44,6 @@ public class CoinsManager : MonoBehaviour
 
     public void GetCoins(int nbToSell, int price)
     {
-        print(coins + " "  + nbToSell * price);
         coins += nbToSell * price;
         UpdateCoinsText();
     }
