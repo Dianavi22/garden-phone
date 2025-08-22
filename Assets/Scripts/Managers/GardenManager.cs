@@ -27,9 +27,9 @@ public class GardenManager : MonoBehaviour
     public void AddNewTile()
     {
         GameManager.Instance.HideAllPanels();
-        if (GameManager.Instance.coins >= _tileCost)
+        if (CoinsManager.Instance.coins >= _tileCost)
         {
-            GameManager.Instance.Buy(_tileCost);
+            CoinsManager.Instance.Buy(_tileCost);
             for (int i = 0; i < _gardenTile.Count; i++)
             {
                 if (!_gardenTile[i].activeSelf)
@@ -41,7 +41,7 @@ public class GardenManager : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.NoCoins();
+            CoinsManager.Instance.NoCoins();
 
         }
         GameManager.Instance.canClick = true;

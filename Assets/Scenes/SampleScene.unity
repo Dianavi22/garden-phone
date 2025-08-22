@@ -1011,6 +1011,7 @@ GameObject:
   - component: {fileID: 955352642}
   - component: {fileID: 955352643}
   - component: {fileID: 955352644}
+  - component: {fileID: 955352645}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1045,8 +1046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a13171bc87cc64e8f1d268f3b13125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 500
-  _coinsTxt: {fileID: 1892291444}
   canClick: 0
   _panelList:
   - {fileID: 1130216664}
@@ -1070,6 +1069,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f24f1fd8a1784a845ab233735daa2c31, type: 2}
   _gameManager: {fileID: 955352639}
   _initMat: {fileID: 2100000, guid: e1f3a34054a93cf4e8732d1b8cd080db, type: 2}
+  _cm: {fileID: 0}
   isPanelActive: 0
 --- !u!114 &955352641
 MonoBehaviour:
@@ -1134,6 +1134,20 @@ MonoBehaviour:
   isSelectedTileMode: 0
   myTile: {fileID: 0}
   isGhostClick: 0
+--- !u!114 &955352645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955352637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8494e462fe52107419f64af4ff057d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: 1000000
+  _coinsTxt: {fileID: 1892291444}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

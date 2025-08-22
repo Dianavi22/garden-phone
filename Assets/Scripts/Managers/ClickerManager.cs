@@ -20,9 +20,9 @@ public class ClickerManager : MonoBehaviour
     public void ActiveSelectMode()
     {
         GameManager.Instance.HideAllPanels();
-        if (_clickerCost > GameManager.Instance.coins)
+        if (_clickerCost > CoinsManager.Instance.coins)
         {
-            GameManager.Instance.NoCoins();
+            CoinsManager.Instance.NoCoins();
             GameManager.Instance.canClick = true;
 
             return;
@@ -39,7 +39,7 @@ public class ClickerManager : MonoBehaviour
         if (!SelectionManager.Instance.myTile.VerifEmpty())
         {
             Instantiate(_clicker, transform.position, Quaternion.identity);
-            GameManager.Instance.Buy(_clickerCost);
+            CoinsManager.Instance.Buy(_clickerCost);
 
         }
         SelectionManager.Instance.ActiveSelectionMode(false);
@@ -51,5 +51,21 @@ public class ClickerManager : MonoBehaviour
     {
         _clickers.Add(clicker);
         clicker.tileAssociate = SelectionManager.Instance.myTile;
+    }
+
+    public void SellClicherAssociate(Tile tile, System.Action onComplete = null)
+    {
+        int n = 0;
+        for (int i = _clickers.Count - 1; i >= 0; i--)
+        {
+            if (_clickers[i].tileAssociate == tile)
+            {
+                Destroy(_clickers[i].gameObject);
+                _clickers.RemoveAt(i);
+                n++;
+            }
+        }
+        CoinsManager.Instance.GetCoins(n, 3);
+        onComplete?.Invoke(); 
     }
 }

@@ -11,10 +11,11 @@ public class TileManager : MonoBehaviour
     [SerializeField] List<RessourcesData> ressourcesList;
     [SerializeField] GameManager _gameManager;
     [SerializeField] Material _initMat;
+    [SerializeField] ClickerManager _cm;
     public bool isPanelActive = false;
     void Start()
     {
-
+        _cm = GetComponent<ClickerManager>();
     }
 
     void Update()
@@ -35,9 +36,9 @@ public class TileManager : MonoBehaviour
         {
             if (ressource == ressourcesList[i].title)
             {
-                if (_gameManager.coins >= ressourcesList[i].cost)
+                if (CoinsManager.Instance.coins >= ressourcesList[i].cost)
                 {
-                    GameManager.Instance.Buy(ressourcesList[i].cost);
+                    CoinsManager.Instance.Buy(ressourcesList[i].cost);
                     selectedTile.currentRessource = ressourcesList[i];
                 }
                 else
@@ -82,6 +83,7 @@ public class TileManager : MonoBehaviour
             myTile.CleanTile();
             myTile.GetComponent<Renderer>().material = _initMat;
             myTile.UpdateTextTile();
+             _cm.SellClicherAssociate(myTile, () => {});
 
         }
         EventManager.Instance.Unsubscribe<OnTileSelected>(ReinitTile);

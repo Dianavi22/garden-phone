@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int coins;
-    [SerializeField] TMP_Text _coinsTxt;
+   
     public bool canClick;
 
     [SerializeField] List<GameObject> _panelList;
@@ -23,7 +22,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         canClick = true;
-        UpdateCoinsText();
     }
 
     void Update()
@@ -36,21 +34,7 @@ public class GameManager : MonoBehaviour
             _panelList[i].SetActive(false);
         }
     }
-    public void UpdateCoinsText()
-    {
-        _coinsTxt.text = coins.ToString();
-
-    }
-    public void Buy(int cost)
-    {
-        coins -= cost;
-        UpdateCoinsText();
-    }
-
-    public void NoCoins()
-    {
-        print("NO COINS");
-    }
+  
 
 
 }
