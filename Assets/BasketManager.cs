@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BasketManager : MonoBehaviour
 {
 
-    [SerializeField]  private List<ItemBasket> _itemsInBasket = new List<ItemBasket>();
+    [SerializeField] private List<ItemBasket> _itemsInBasket = new List<ItemBasket>();
     [SerializeField] GameObject _buttonBasket;
     [SerializeField] GameObject _itemBasket;
     [SerializeField] GameObject _basketGrid;
@@ -21,20 +21,28 @@ public class BasketManager : MonoBehaviour
     }
     void Update()
     {
-        
+
     }
 
     public void ShowBasket()
     {
-        GameManager.Instance.HideAllPanels();
-        _buttonBasket.SetActive(!_buttonBasket.activeSelf);
+        if (_buttonBasket.activeSelf)
+        {
+            _buttonBasket.SetActive(!_buttonBasket.activeSelf);
+        }
+        else
+        {
+            GameManager.Instance.HideAllPanels();
+            _buttonBasket.SetActive(!_buttonBasket.activeSelf);
+        }
+          
     }
 
     public void UpdateItemInBasket(RessourcesData rd)
     {
         for (int i = 0; i < _itemsInBasket.Count; i++)
         {
-            if(rd == _itemsInBasket[i].dataAssociate)
+            if (rd == _itemsInBasket[i].dataAssociate)
             {
                 _itemsInBasket[i].myText.text = rd.ressourceBasket.ressourceInBasket.ToString();
                 return;
@@ -54,9 +62,9 @@ public class BasketManager : MonoBehaviour
                 }
             }
         }
-       var newItem = Instantiate(_itemBasket, transform.position, Quaternion.identity);
+        var newItem = Instantiate(_itemBasket, transform.position, Quaternion.identity);
         newItem.GetComponent<ItemBasket>().dataAssociate = rd;
-       _itemsInBasket.Add(newItem.GetComponent<ItemBasket>());
+        _itemsInBasket.Add(newItem.GetComponent<ItemBasket>());
         newItem.GetComponent<Image>().color = rd.ressourceBasket.colorBasketItem;
         newItem.transform.parent = _basketGrid.transform;
         newItem.transform.localScale = new Vector3(1.5f, 1, 1);
@@ -65,7 +73,6 @@ public class BasketManager : MonoBehaviour
 
     public void DeleteItemBasket(RessourcesData rd)
     {
-        print("LAAAAAAAAAAA");
         for (int i = 0; i < _itemsInBasket.Count; i++)
         {
             if (_itemsInBasket[i].dataAssociate.title == rd.title)

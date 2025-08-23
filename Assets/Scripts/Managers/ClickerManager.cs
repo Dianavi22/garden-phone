@@ -56,7 +56,7 @@ public class ClickerManager : MonoBehaviour
         clicker.tileAssociate = _myTile;
     }
 
-    public void SellClicherAssociate(Tile tile, System.Action onComplete = null)
+    public void SellClickerAssociate(Tile tile, System.Action onComplete = null)
     {
         int n = 0;
         for (int i = _clickers.Count - 1; i >= 0; i--)

@@ -37,9 +37,8 @@ public class GardenManager : MonoBehaviour
             {
                 nbOccuRessource++;
             }
-
         }
-        if (nbOccuRessource <= 1)
+        if (nbOccuRessource <= 1 && rd.ressourceBasket.ressourceInBasket == 0)
         {
             BasketManager.Instance.DeleteItemBasket(rd);
         }
