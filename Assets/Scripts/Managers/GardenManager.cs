@@ -20,12 +20,12 @@ public class GardenManager : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 
     public void ResetTile(RessourcesData rd, System.Action onComplete = null)
@@ -33,13 +33,13 @@ public class GardenManager : MonoBehaviour
         int nbOccuRessource = 0;
         for (int i = 0; i < gardenActiveTile.Count; i++)
         {
-            if (rd.title == gardenActiveTile[i].currentRessource.title)
+            if (!gardenActiveTile[i].VerifEmpty() && rd.title == gardenActiveTile[i].currentRessource.title)
             {
                 nbOccuRessource++;
             }
-        }
 
-        if (nbOccuRessource < 1)
+        }
+        if (nbOccuRessource <= 1)
         {
             BasketManager.Instance.DeleteItemBasket(rd);
         }
