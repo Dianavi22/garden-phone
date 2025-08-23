@@ -17,4 +17,12 @@ public class ItemBasket : MonoBehaviour
         
     }
 
+    public void SellItem()
+    {
+        CoinsManager.Instance.GetCoins(dataAssociate.ressourceBasket.ressourceInBasket, dataAssociate.price);
+        dataAssociate.ressourceBasket.ressourceInBasket = 0;
+        myText.text = dataAssociate.ressourceBasket.ressourceInBasket.ToString();
+        GardenManager.Instance.ResetTileCallBack(dataAssociate, 0, () => { });
+    }
+
 }

@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\CoinsManager.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
+    <Compile Include="Assets\DraggableItem.cs" />
     <Compile Include="Assets\Scripts\Scriptable\Basket\BasketDataManager.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
     <Compile Include="Assets\ItemBasket.cs" />

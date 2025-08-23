@@ -28,7 +28,14 @@ public class GardenManager : MonoBehaviour
 
     }
 
-    public void ResetTile(RessourcesData rd, System.Action onComplete = null)
+    public void ResetTileCallBack(RessourcesData rd, int nbMinToReset, System.Action onComplete = null)
+    {
+        ResetItemInBasket(rd, nbMinToReset);
+         onComplete?.Invoke();
+    }
+
+
+    private void ResetItemInBasket(RessourcesData rd, int nbMinToReset)
     {
         int nbOccuRessource = 0;
         for (int i = 0; i < gardenActiveTile.Count; i++)
@@ -38,12 +45,12 @@ public class GardenManager : MonoBehaviour
                 nbOccuRessource++;
             }
         }
-        if (nbOccuRessource <= 1 && rd.ressourceBasket.ressourceInBasket == 0)
+        if (nbOccuRessource <= nbMinToReset && rd.ressourceBasket.ressourceInBasket == 0)
         {
             BasketManager.Instance.DeleteItemBasket(rd);
         }
-        onComplete?.Invoke();
     }
+    
 
     public void ShopShop()
     {

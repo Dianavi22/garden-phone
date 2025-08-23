@@ -77,7 +77,7 @@ public class TileManager : MonoBehaviour
         Tile myTile = SelectionManager.Instance.myTile;
         if (myTile != null && !myTile.VerifEmpty())
         {
-            GardenManager.Instance.ResetTile(myTile.currentRessource,  () => { });
+            GardenManager.Instance.ResetTileCallBack(myTile.currentRessource, 1,  () => { });
             myTile.currentRessource.ressourceBasket.ressourceInBasket += myTile.nbRessources;
             myTile.CleanTile();
             myTile.GetComponent<Renderer>().material = _initMat;
