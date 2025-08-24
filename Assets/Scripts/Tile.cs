@@ -11,10 +11,14 @@ public class Tile : MonoBehaviour
     public int nbRessources;
     public RessourcesData currentRessource;
     [SerializeField] private TMP_Text _tileTxt;
+    [SerializeField] Material ActiveTileMat;
+    [SerializeField] Material DisableTileMat;
+    public bool isTileActive;
     void Start()
     {
         _tileData = GetComponent<TileData>();
         _tileManager = FindObjectOfType<TileManager>();
+
     }
 
     void Update()
@@ -24,7 +28,7 @@ public class Tile : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (GameManager.Instance.canClick)
+        if (GameManager.Instance.canClick && isTileActive)
         {
             if (SelectionManager.Instance.isGhostClick)
             {
@@ -43,6 +47,21 @@ public class Tile : MonoBehaviour
             }
         }
 
+    }
+
+    public void ChangeModeActiveTile(bool isActive)
+    {
+        if (isActive)
+        {
+            isTileActive = true;
+            this.GetComponent<Renderer>().material = ActiveTileMat;
+
+        }
+        else
+        {
+            isTileActive = false;
+            this.GetComponent<Renderer>().material = DisableTileMat;
+        }
     }
 
 

@@ -137,6 +137,9 @@ MonoBehaviour:
   nbRessources: 0
   currentRessource: {fileID: 0}
   _tileTxt: {fileID: 6629085228279737491}
+  ActiveTileMat: {fileID: 2100000, guid: e1f3a34054a93cf4e8732d1b8cd080db, type: 2}
+  DisableTileMat: {fileID: 2100000, guid: 917e0d934d50d5f4881e1d6fefd119e5, type: 2}
+  isTileActive: 0
 --- !u!1 &5605196632699373002
 GameObject:
   m_ObjectHideFlags: 0

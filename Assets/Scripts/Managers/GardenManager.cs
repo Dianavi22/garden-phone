@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class GardenManager : MonoBehaviour
 {
-    public List<GameObject> gardenTile;
+    public List<Tile> gardenTile;
     public List<Tile> gardenActiveTile;
     [SerializeField] GameObject _shopPanel;
+
     [SerializeField] int _tileCost;
+    [SerializeField] Material _noActiveMat;
     public static GardenManager Instance { get; private set; }
 
     void Awake()
@@ -68,20 +70,44 @@ public class GardenManager : MonoBehaviour
             CoinsManager.Instance.Buy(_tileCost);
             for (int i = 0; i < gardenTile.Count; i++)
             {
-                if (!gardenTile[i].activeSelf)
+                gardenTile[i].gameObject.SetActive(true);
+                if (!gardenTile[i].isTileActive)
                 {
-                    gardenTile[i].SetActive(true);
-                    gardenActiveTile.Add(gardenTile[i].GetComponent<Tile>());
-                    break;
+                    gardenTile[i].ChangeModeActiveTile(false);
                 }
             }
+            SelectionManager.Instance.ActiveSelectionMode(true);
+            EventManager.Instance.Subscribe<OnTileSelected>(SelectNewTile);
         }
         else
         {
             CoinsManager.Instance.NoCoins();
-
         }
         GameManager.Instance.canClick = true;
 
+    }
+
+    private void SelectNewTile(object sender, OnTileSelected @event)
+    {
+        Tile myTile = SelectionManager.Instance.myTile;
+        if (myTile != null)
+        {
+            myTile.ChangeModeActiveTile(true);
+        }
+        HideTilesNoActive();
+        EventManager.Instance.Unsubscribe<OnTileSelected>(SelectNewTile);
+        SelectionManager.Instance.ActiveSelectionMode(false);
+        GameManager.Instance.HideAllPanels();
+    }
+
+    private void HideTilesNoActive()
+    {
+        for (int i = 0; i < gardenTile.Count; i++)
+        {
+            if (!gardenTile[i].isTileActive)
+            {
+                gardenTile[i].gameObject.SetActive(false);
+            }
+        }
     }
 }
