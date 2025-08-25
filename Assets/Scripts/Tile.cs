@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -26,8 +27,13 @@ public class Tile : MonoBehaviour
 
     }
 
-    void OnMouseUp()
+    
+
+    public void OnMouseUp()
     {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (GameManager.Instance.canClick && isTileActive)
         {
             if (SelectionManager.Instance.isGhostClick)
@@ -35,7 +41,9 @@ public class Tile : MonoBehaviour
                 SelectionManager.Instance.isGhostClick = false;
                 return;
             }
+
             _tileManager.selectedTile = this;
+
             if (_tileData.isEmpty)
             {
                 _tileManager.PanelStatus(true);
@@ -46,8 +54,11 @@ public class Tile : MonoBehaviour
                 UpdateTextTile();
             }
         }
-
     }
+
+
+
+
 
     public void ChangeModeActiveTile(bool isActive)
     {

@@ -367,6 +367,7 @@
 "Assets/Scripts/Scriptable/RessourcesData/RessourcesData.cs"
 "Assets/Scripts/Tile.cs"
 "Assets/Scripts/TileData.cs"
+"Assets/UIHelper.cs"
 -langversion:9.0
 
 /deterministic

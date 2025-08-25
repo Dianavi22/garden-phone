@@ -59,7 +59,6 @@ public class GardenManager : MonoBehaviour
         GameManager.Instance.HideAllPanels();
         _shopPanel.SetActive(true);
         GameManager.Instance.canClick = false;
-
     }
 
     public void AddNewTile()
@@ -90,7 +89,7 @@ public class GardenManager : MonoBehaviour
     private void SelectNewTile(object sender, OnTileSelected @event)
     {
         Tile myTile = SelectionManager.Instance.myTile;
-        if (myTile != null)
+        if (myTile != null && !myTile.isTileActive)
         {
             myTile.ChangeModeActiveTile(true);
         }

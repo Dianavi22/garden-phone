@@ -11,6 +11,7 @@ public class SelectionManager : MonoBehaviour
     public Tile myTile;
     public bool isGhostClick;
     private Ray ray;
+    public Tile selectedTile;
     public static SelectionManager Instance { get; private set; }
 
     void Awake()
