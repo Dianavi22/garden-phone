@@ -33,6 +33,7 @@ public class TileManager : MonoBehaviour
                 {
                     CoinsManager.Instance.Buy(ressourcesList[i].cost);
                     selectedTile.currentRessource = ressourcesList[i];
+                    selectedTile.maxNbRessources = selectedTile.currentRessource.maxRessource;
                     BasketManager.Instance.AddItemInBasket(ressourcesList[i]);
                 }
                 else

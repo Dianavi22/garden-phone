@@ -99,6 +99,29 @@ public class GardenManager : MonoBehaviour
         GameManager.Instance.HideAllPanels();
     }
 
+    public void AddCapacity()
+    {
+        GameManager.Instance.HideAllPanels();
+        SelectionManager.Instance.ActiveSelectionMode(true);
+        EventManager.Instance.Subscribe<OnTileSelected>(IncreaseMaxCapacity);
+        GameManager.Instance.canClick = true;
+
+    }
+
+    private void IncreaseMaxCapacity(object sender, OnTileSelected @event)
+    {
+        Tile myTile = SelectionManager.Instance.myTile;
+
+        if (myTile != null && myTile.isTileActive)
+        {
+            myTile.maxNbRessources += 20;
+        }
+        HideTilesNoActive();
+        EventManager.Instance.Unsubscribe<OnTileSelected>(IncreaseMaxCapacity);
+        SelectionManager.Instance.ActiveSelectionMode(false);
+        GameManager.Instance.HideAllPanels();
+    }
+
     private void HideTilesNoActive()
     {
         for (int i = 0; i < gardenTile.Count; i++)

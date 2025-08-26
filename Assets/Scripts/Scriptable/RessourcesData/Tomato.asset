@@ -16,5 +16,6 @@ MonoBehaviour:
   title: Tomato
   cost: 10
   price: 1
+  maxRessource: 10
   ressourceMat: {fileID: 2100000, guid: bd36d11ff6b62bb44938789a6098a2eb, type: 2}
   ressourceBasket: {fileID: 11400000, guid: 18945d6acf9187a43823bf1b08224b09, type: 2}

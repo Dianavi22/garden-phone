@@ -15,11 +15,15 @@ public class Tile : MonoBehaviour
     [SerializeField] Material ActiveTileMat;
     [SerializeField] Material DisableTileMat;
     public bool isTileActive;
+    private bool _isEmpty;
+    private string ressourceStatus;
+    [SerializeField] public int maxNbRessources;
+
     void Start()
     {
         _tileData = GetComponent<TileData>();
         _tileManager = FindObjectOfType<TileManager>();
-
+        _isEmpty = true;
     }
 
     void Update()
@@ -27,7 +31,7 @@ public class Tile : MonoBehaviour
 
     }
 
-    
+
 
     public void OnMouseUp()
     {
@@ -44,11 +48,11 @@ public class Tile : MonoBehaviour
 
             _tileManager.selectedTile = this;
 
-            if (_tileData.isEmpty)
+            if (_isEmpty)
             {
                 _tileManager.PanelStatus(true);
             }
-            else
+            else if (nbRessources < maxNbRessources)
             {
                 nbRessources++;
                 UpdateTextTile();
@@ -78,16 +82,16 @@ public class Tile : MonoBehaviour
 
     public bool VerifEmpty()
     {
-        return _tileData.isEmpty;
+        return _isEmpty;
     }
-
+   
     public void CleanTile()
     {
-        _tileData.isEmpty = true;
+        _isEmpty = true;
         nbRessources = 0;
         currentRessource = null;
         _tileTxt.gameObject.SetActive(false);
-        _tileData.ressourceStatus = null;
+        ressourceStatus = null;
 
     }
 
@@ -99,8 +103,8 @@ public class Tile : MonoBehaviour
     public void SetRessource(string ressource)
     {
         _tileTxt.gameObject.SetActive(true);
-        _tileData.ressourceStatus = ressource;
-        _tileData.isEmpty = false;
+        ressourceStatus = ressource;
+        _isEmpty = false;
         this.gameObject.GetComponent<Renderer>().material = currentRessource.ressourceMat;
     }
 

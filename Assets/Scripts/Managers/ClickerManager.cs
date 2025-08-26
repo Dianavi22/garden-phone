@@ -38,8 +38,7 @@ public class ClickerManager : MonoBehaviour
     public void AddClicker(object sender, OnTileSelected @event)
     {
          _myTile = SelectionManager.Instance.myTile;
-        print(_myTile);
-        if (_myTile != null && !_myTile.VerifEmpty() )
+        if (_myTile != null && !_myTile.VerifEmpty())
         {
             Instantiate(_clicker, transform.position, Quaternion.identity);
             CoinsManager.Instance.Buy(_clickerCost);

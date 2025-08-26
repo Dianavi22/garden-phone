@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8985008201143256121}
   - component: {fileID: 8343064556045278849}
   - component: {fileID: 6103793689917678310}
-  - component: {fileID: 7853990899377800982}
   - component: {fileID: 2659798758161621554}
   m_Layer: 0
   m_Name: Tile
@@ -108,20 +107,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7853990899377800982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996615133003532194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0905e4320e5bc4a8895753a906b039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEmpty: 1
-  ressourceStatus: 
 --- !u!114 &2659798758161621554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +125,7 @@ MonoBehaviour:
   ActiveTileMat: {fileID: 2100000, guid: e1f3a34054a93cf4e8732d1b8cd080db, type: 2}
   DisableTileMat: {fileID: 2100000, guid: 917e0d934d50d5f4881e1d6fefd119e5, type: 2}
   isTileActive: 0
+  maxNbRessources: 0
 --- !u!1 &5605196632699373002
 GameObject:
   m_ObjectHideFlags: 0

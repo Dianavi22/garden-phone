@@ -16,5 +16,6 @@ MonoBehaviour:
   title: Corn
   cost: 20
   price: 3
+  maxRessource: 10
   ressourceMat: {fileID: 2100000, guid: 55df2bdc7155170429fc3d326145296c, type: 2}
   ressourceBasket: {fileID: 11400000, guid: 536a625b06c7265479c0880a65940c17, type: 2}

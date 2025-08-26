@@ -9,6 +9,7 @@ public class RessourcesData : ScriptableObject
     public string title;
     public int cost;
     public int price;
+    public int maxRessource;
     public Material ressourceMat;
     public BasketDataManager ressourceBasket;
 }

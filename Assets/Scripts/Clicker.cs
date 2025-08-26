@@ -19,16 +19,20 @@ public class Clicker : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= _clickerManager.interval)
+        if (tileAssociate.nbRessources< tileAssociate.maxNbRessources)
         {
-            int ticks = Mathf.FloorToInt(timer / _clickerManager.interval); 
-            timer -= ticks * _clickerManager.interval;
+            timer += Time.deltaTime;
 
-            tileAssociate.nbRessources += _clickerManager.incrementAmount * ticks;
-            tileAssociate.UpdateTextTile();
+            if (timer >= _clickerManager.interval)
+            {
+                int ticks = Mathf.FloorToInt(timer / _clickerManager.interval);
+                timer -= ticks * _clickerManager.interval;
+
+                tileAssociate.nbRessources += _clickerManager.incrementAmount * ticks;
+                tileAssociate.UpdateTextTile();
+            }
         }
+       
     }
 
     public int GetValue()

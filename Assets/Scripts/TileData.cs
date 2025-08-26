@@ -5,8 +5,7 @@ using UnityEngine;
 public class TileData : MonoBehaviour
 {
 
-    public bool isEmpty;
-    public string ressourceStatus;
+    
     void Start()
     {
         
