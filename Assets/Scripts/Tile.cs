@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
-    private TileData _tileData;
     private TileManager _tileManager;
     public int nbRessources;
     public RessourcesData currentRessource;
@@ -18,20 +17,13 @@ public class Tile : MonoBehaviour
     private bool _isEmpty;
     private string ressourceStatus;
     [SerializeField] public int maxNbRessources;
+    [SerializeField] public int idCamMode;
 
     void Start()
     {
-        _tileData = GetComponent<TileData>();
         _tileManager = FindObjectOfType<TileManager>();
         _isEmpty = true;
     }
-
-    void Update()
-    {
-
-    }
-
-
 
     public void OnMouseUp()
     {

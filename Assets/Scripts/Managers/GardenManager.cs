@@ -9,7 +9,7 @@ public class GardenManager : MonoBehaviour
     public List<Tile> gardenActiveTile;
     [SerializeField] GameObject _shopPanel;
 
-    [SerializeField] int _tileCost;
+    [SerializeField] PricesData _priceData;
     [SerializeField] Material _noActiveMat;
     public static GardenManager Instance { get; private set; }
 
@@ -20,23 +20,11 @@ public class GardenManager : MonoBehaviour
         else
             Instance = this;
     }
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     public void ResetTileCallBack(RessourcesData rd, int nbMinToReset, System.Action onComplete = null)
     {
         ResetItemInBasket(rd, nbMinToReset);
          onComplete?.Invoke();
     }
-
-
     private void ResetItemInBasket(RessourcesData rd, int nbMinToReset)
     {
         int nbOccuRessource = 0;
@@ -64,15 +52,18 @@ public class GardenManager : MonoBehaviour
     public void AddNewTile()
     {
         GameManager.Instance.HideAllPanels();
-        if (CoinsManager.Instance.coins >= _tileCost)
+        if (CoinsManager.Instance.coins >= _priceData.tileCost)
         {
-            CoinsManager.Instance.Buy(_tileCost);
+            CoinsManager.Instance.Buy(_priceData.tileCost);
             for (int i = 0; i < gardenTile.Count; i++)
             {
-                gardenTile[i].gameObject.SetActive(true);
-                if (!gardenTile[i].isTileActive)
+                if (gardenTile[i].idCamMode <= CameraManager.Instance.currentModeCam)
                 {
-                    gardenTile[i].ChangeModeActiveTile(false);
+                    gardenTile[i].gameObject.SetActive(true);
+                    if (!gardenTile[i].isTileActive)
+                    {
+                        gardenTile[i].ChangeModeActiveTile(false);
+                    }
                 }
             }
             SelectionManager.Instance.ActiveSelectionMode(true);
@@ -102,16 +93,18 @@ public class GardenManager : MonoBehaviour
     public void AddCapacity()
     {
         GameManager.Instance.HideAllPanels();
-        SelectionManager.Instance.ActiveSelectionMode(true);
-        EventManager.Instance.Subscribe<OnTileSelected>(IncreaseMaxCapacity);
+        if (CoinsManager.Instance.coins >= _priceData.incraseCapacityTileCost)
+        {
+            CoinsManager.Instance.Buy(_priceData.incraseCapacityTileCost);
+            SelectionManager.Instance.ActiveSelectionMode(true);
+            EventManager.Instance.Subscribe<OnTileSelected>(IncreaseMaxCapacity);
+        }
         GameManager.Instance.canClick = true;
-
     }
 
     private void IncreaseMaxCapacity(object sender, OnTileSelected @event)
     {
         Tile myTile = SelectionManager.Instance.myTile;
-
         if (myTile != null && myTile.isTileActive)
         {
             myTile.maxNbRessources += 20;
